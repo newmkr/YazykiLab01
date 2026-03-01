@@ -26,7 +26,7 @@ public class ArrayVector
 	public ArrayVector(int[] values)
 	{
 		if (values.Length < 1) throw new ArgumentException("Размерность вектора должна быть натуральным числом");
-		coordinates = values;
+		coordinates = (int[])values.Clone();
 	}
 
 	public int this[int index] // System.IndexOutOfRangeException is possible

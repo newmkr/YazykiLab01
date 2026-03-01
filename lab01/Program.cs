@@ -1,7 +1,4 @@
 ﻿
-using System.Diagnostics;
-using System.Xml.Serialization;
-
 namespace lab01;
 
 public class Program
@@ -75,8 +72,8 @@ public class Program
             Console.WriteLine("Вызван метод SortDown, затем Print (A):");
             a.SortDown();
             a.Print();
-            Console.WriteLine("(A Приведён в прежний вид)");
-            a = prev_a;
+            Console.WriteLine("(A будет приведён в прежний вид)");
+            a = prev_a.Clone();
             Console.WriteLine("\nПроверка разработанных членов класса Vectors:");
             Console.WriteLine("Метод SumSt (A, B):");
             try
@@ -98,11 +95,12 @@ public class Program
             }
             Console.WriteLine("Метод MultNumberSt (A, K):");
             Vectors.MultNumberSt(a, k).Print();
-            Console.WriteLine("(A Приведён в прежний вид)");
-            a = prev_a;
+            Console.WriteLine("(A будет приведён в прежний вид)");
+            a = prev_a.Clone();
             Console.WriteLine("Метод GetNormSt (A):");
             Console.WriteLine(Vectors.GetNormSt(a));
             Console.WriteLine("Демонстрация завершена. Выберите опцию:\n1 - Начать заново\n2 - Завершить работу");
+            menuOption = GetOption(1, 2);
         }
     }
 
