@@ -1,0 +1,14 @@
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\bin\Debug\net9.0\lab01.exe
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\bin\Debug\net9.0\lab01.deps.json
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\bin\Debug\net9.0\lab01.runtimeconfig.json
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\bin\Debug\net9.0\lab01.dll
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\bin\Debug\net9.0\lab01.pdb
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.AssemblyInfoInputs.cache
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.AssemblyInfo.cs
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.csproj.CoreCompileInputs.cache
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.dll
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\refint\lab01.dll
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.pdb
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\lab01.genruntimeconfig.cache
+C:\Users\MyUser\Uni\Yasyki\labs\lab01\lab01\obj\Debug\net9.0\ref\lab01.dll
