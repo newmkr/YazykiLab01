@@ -7,14 +7,6 @@ public class ArrayVector
 {
 	private int[] coordinates;
 
-	public int Length
-	{
-		get
-		{
-			return coordinates.Length;
-		}
-	}
-
 	public ArrayVector(int length)
 	{
 		if (length < 1) throw new ArgumentException("Размерность вектора должна быть натуральным числом");
@@ -26,18 +18,34 @@ public class ArrayVector
 	public ArrayVector(int[] values)
 	{
 		if (values.Length < 1) throw new ArgumentException("Размерность вектора должна быть натуральным числом");
-		coordinates = (int[])values.Clone();
+		coordinates = (int[])values.Clone(); // Компилятор считал, что метод Clone() возвращает массив с неопределённым типом, поэтому приходится его "преобразовать"
 	}
 
-	public int this[int index] // System.IndexOutOfRangeException is possible
+	public int this[int index]
 	{
 		get
 		{
+			if (index < 0 || index >= coordinates.Length)
+			{
+				throw new IndexOutOfRangeException("Индекс выходит за пределы массива координат");
+			}
 			return coordinates[index];
 		}
 		set
 		{
+			if (index < 0 || index >= coordinates.Length)
+			{
+				throw new IndexOutOfRangeException("Индекс выходит за пределы массива координат");
+			}
 			coordinates[index] = value;
+		}
+	}
+
+	public int Length
+	{
+		get
+		{
+			return coordinates.Length;
 		}
 	}
 
@@ -59,10 +67,10 @@ public class ArrayVector
 		{
 			throw new InvalidOperationException("Нельзя вычислить нормаль вектора с нулём измерений");
 		}
-		int squareSum = 0;
+		long squareSum = 0;
 		foreach (int coordinate in coordinates)
 		{
-			squareSum += coordinate * coordinate;
+			squareSum += (long)coordinate * coordinate;
 		}
 		return Math.Sqrt(squareSum);
 	}
@@ -108,49 +116,42 @@ public class ArrayVector
 		return (sum, foundAnyElements);
 	}
 
-	private double GetAverageAbsoluteCoordinate()
+	public (int result, bool foundAnyElements) MultChet()
 	{
-		if (coordinates.Length == 0) throw new DivideByZeroException("Невозможно вычислеть среднее значение для вектора с нулём измерений");
-		int sum = 0;
-		foreach (int coordinate in coordinates)
-		{
-			sum += Math.Abs(coordinate);
-		}
-		return (double)sum / coordinates.Length;
-	}
-
-	public int MultChet()
-	{
-		if (coordinates.Length < 2)
+		if (coordinates.Length == 0)
 		{
 			throw new InvalidOperationException("Недостаточно измерений для выполнения операции перемножения четных элементов");
 		}
 		int product = 1;
+		bool foundAnyElements = false;
 		foreach (int coordinate in coordinates)
 		{
 			if (coordinate % 2 == 0)
 			{
 				product *= coordinate;
+				foundAnyElements = true;
 			}
 		}
-		return product;
+		return (product, foundAnyElements);
 	}
 
-	public int MultNechet()
+	public (int result, bool foundAnyElements) MultNechet()
 	{
 		if (coordinates.Length == 0)
 		{
 			throw new InvalidOperationException("Невозможно перемножить элементы вектора с нулём измерений");
 		}
 		int product = 1;
+		bool foundAnyElements = false;
 		foreach (int coordinate in coordinates)
 		{
 			if (coordinate % 2 != 0 && coordinate % 3 != 0)
 			{
 				product *= coordinate;
+				foundAnyElements = true;
 			}
 		}
-		return product;
+		return (product, foundAnyElements);
 	}
 
 	public void SortUp()
@@ -191,4 +192,14 @@ public class ArrayVector
 		Console.WriteLine(ToString());
 	}
 
+	private double GetAverageAbsoluteCoordinate()
+	{
+		if (coordinates.Length == 0) throw new DivideByZeroException("Невозможно вычислеть среднее значение для вектора с нулём измерений");
+		int sum = 0;
+		foreach (int coordinate in coordinates)
+		{
+			sum += Math.Abs(coordinate);
+		}
+		return (double)sum / coordinates.Length;
+	}
 }

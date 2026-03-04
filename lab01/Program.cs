@@ -29,8 +29,14 @@ public class Program
             try
             {
                 (int result, bool foundAnyElements) = a.SumPositivesFromChetIndex();
-                Console.WriteLine(result);
-                if (!foundAnyElements) Console.WriteLine("(!)Не было найдено подходящих элементов для сложения, возвращен ноль");
+                if (foundAnyElements)
+                {
+                    Console.WriteLine(result);
+                }
+                else
+                {
+                    Console.WriteLine("Не было найдено подходящих элементов для сложения");
+                }
             }
             catch (InvalidOperationException e)
             {
@@ -40,8 +46,14 @@ public class Program
             try
             {
                 (int result, bool foundAnyElements) = a.SumLessFromNechetIndex();
-                Console.WriteLine(result);
-                if (!foundAnyElements) Console.WriteLine("(!)Не было найдено подходящих элементов для сложения, возвращен ноль");
+                if (foundAnyElements)
+                {
+                    Console.WriteLine(result);
+                }
+                else
+                {
+                    Console.WriteLine("Не было найдено подходящих элементов для сложения");
+                }
             }
             catch (InvalidOperationException e)
             {
@@ -50,7 +62,15 @@ public class Program
             Console.WriteLine("Метод MultChet (A):");
             try
             {
-                Console.WriteLine(a.MultChet());
+                (int result, bool foundAnyElements) = a.MultChet();
+                if (foundAnyElements)
+                {
+                    Console.WriteLine(result);
+                }
+                else
+                {
+                    Console.WriteLine("Не было найдено подходящих элементов для выполнения операции");
+                }
             }
             catch (InvalidOperationException e)
             {
@@ -59,7 +79,15 @@ public class Program
             Console.WriteLine("Метод MultNechet (A):");
             try
             {
-                Console.WriteLine(a.MultNechet());
+                (int result, bool foundAnyElements) = a.MultNechet();
+                if (foundAnyElements)
+                {
+                    Console.WriteLine(result);
+                }
+                else
+                {
+                    Console.WriteLine("Не было найдено подходящих элементов для выполнения операции");
+                }
             }
             catch (InvalidOperationException e)
             {
